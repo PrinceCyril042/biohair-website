@@ -1,0 +1,116 @@
+/* style.css — BIO HAIR (final fresh build) */
+
+/* Colors & fonts */
+:root{
+  --purple:#6A0DAD;
+  --emerald:#50C878;
+  --gold:#D4AF37;
+  --muted:#faf9fb;
+  --text:#222;
+  --container:1200px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color:var(--text);
+  background:var(--muted);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Layout container */
+.container{max-width:var(--container);margin:0 auto;padding:20px}
+
+/* Header */
+.site-header{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  z-index:1200;
+  border-bottom:1px solid rgba(10,10,10,0.03);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 20px}
+.brand-logo{height:56px;display:block}
+.menu-toggle{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:#111}
+
+/* Main nav */
+.main-nav{display:flex;gap:18px;align-items:center}
+.main-nav a{color:#111;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
+.main-nav a:hover{background:rgba(106,13,173,0.06);color:var(--purple)}
+
+/* HERO */
+.hero{
+  margin-top:84px; /* allow for fixed header */
+  position:relative;
+  min-height:64vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-bottom-left-radius:24px;
+  border-bottom-right-radius:24px;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(10,6,10,0.35), rgba(10,6,10,0.15));
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:60px 0;z-index:2}
+.hero-copy{color:#fff;text-align:left;padding:10px}
+.hero-title{
+  font-family:'Playfair Display', serif;
+  font-size:2.4rem;
+  color:var(--gold);
+  line-height:1.05;
+  margin:0 0 18px 0;
+}
+.brand-inline{display:inline-block;color:#fff;font-weight:700;margin-left:6px}
+.hero-image img{width:100%;height:auto;border-radius:16px;box-shadow:0 30px 80px rgba(10,10,20,0.45)}
+
+/* Buttons */
+.btn{display:inline-block;padding:12px 22px;border-radius:28px;text-decoration:none;font-weight:700}
+.btn-primary{background:linear-gradient(90deg,var(--gold), #c89f2c);color:#fff;box-shadow:0 8px 30px rgba(212,175,55,0.12)}
+.btn-outline{background:transparent;border:2px solid #eee;padding:10px 14px;border-radius:8px}
+
+/* SECTION / PRODUCTS */
+.section{padding:60px 0}
+.products{padding-top:30px;padding-bottom:60px}
+.section-title{text-align:center;color:var(--purple);font-size:1.4rem;margin-bottom:28px}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(10,10,20,0.06);transition:transform .25s}
+.product-card:hover{transform:translateY(-6px)}
+.product-card img{width:100%;height:300px;object-fit:cover}
+.product-info{padding:14px}
+.product-info h3{margin:0 0 8px;font-size:1.05rem}
+.price{color:var(--emerald);font-weight:800;margin-bottom:10px}
+
+/* ABOUT */
+.about{padding:60px 0;background:#fff;border-radius:12px}
+.about-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+.about-image img{width:100%;border-radius:12px;box-shadow:0 18px 50px rgba(10,10,20,0.06)}
+
+/* FOOTER */
+.site-footer{padding:40px 0;background:#fff;border-top:1px solid #f0f0f2}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.logo-small{height:44px}
+
+/* UTIL */
+.text-center{text-align:center}
+
+/* RESPONSIVE */
+@media (max-width:1100px){.products-grid{grid-template-columns:repeat(3,1fr)}.hero-grid{grid-template-columns:1fr 360px}}
+@media (max-width:880px){.products-grid{grid-template-columns:repeat(2,1fr)}.hero-grid{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .header-inner{padding:10px}
+  .brand-logo{height:48px}
+  .menu-toggle{display:block}
+  .main-nav{position:fixed;right:16px;top:76px;background:#fff;width:220px;border-radius:12px;box-shadow:0 20px 60px rgba(10,10,20,0.08);display:none;flex-direction:column;padding:14px;z-index:1300}
+  .main-nav.show{display:flex}
+  .main-nav a{color:#222;margin:8px 0}
+  .products-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr;padding:30px 0}
+  .hero-title{font-size:1.6rem}
+}
