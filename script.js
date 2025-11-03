@@ -17,3 +17,12 @@ document.addEventListener('click', (e) => {
   const name = btn.dataset.product;
   alert(`${name} — quick view placeholder. I can replace this with a modal (+ add-to-cart) when you want.`);
 });
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
